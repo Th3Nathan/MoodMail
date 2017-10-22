@@ -2,7 +2,7 @@ var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var User = require('./../models/user.js');
 var Message = require('./../models/message.js');
 
-var googleCallback = function(accessToken, refreshToken, profile, cb) {
+var googleCallback = function(accessToken, refreshToken, profile, done) {
   User.findOne({'id': profile.id}, function(err, user) {
     if (err) { return done(err)}
     if (!user) {
@@ -13,16 +13,16 @@ var googleCallback = function(accessToken, refreshToken, profile, cb) {
       });
       user.save(function(err) {
         if (err) throw err;
-        return messageCallback(accessToken, cb, user);
+        return messageCallback(accessToken, done, user);
       });   
     }
     else {
-      return messageCallback(accessToken, cb, user);
+      return messageCallback(accessToken, done, user);
     }
   });
 };
 
-function messageCallback(accessToken, cb, user){
+function messageCallback(accessToken, done, user){
   var Gmail = require('node-gmail-api');
   var gmail = new Gmail(accessToken);
   var options = {
@@ -44,12 +44,12 @@ function messageCallback(accessToken, cb, user){
       });
       message.save(err => {
         if (err){
-          return cb(null, user);
+          return done(null, user);
         } 
         console.log('saved to database');
         //runs callback only once the last months data is saved to the database
         if (i == 11){
-          return cb(null, user);
+          return done(null, user);
         }
       });
     });
