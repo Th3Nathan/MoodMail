@@ -63,7 +63,8 @@ module.exports = {
     callbackURL: 'https://moodmail.herokuapp.com/auth/google/callback'
   }, googleCallback)
 }
-
+// https://moodmail.herokuapp.com/auth/google/callback
+// http://localhost:3000/auth/google/callback
 
 // this code gets the whole message body, but theres markup and images, snippts will be better for now
 // until a string parsing algo is implemented
