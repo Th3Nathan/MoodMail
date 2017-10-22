@@ -26,7 +26,7 @@ function messageCallback(accessToken, cb, user){
   var Gmail = require('node-gmail-api');
   var gmail = new Gmail(accessToken);
   var options = {
-    max: 3,
+    max: 5,
     fields: ['id', 'internalDate', 'snippet'],
     format: 'full'
   };
