@@ -7,8 +7,8 @@ mongoose.connect(require('./config/database.js').url);
 var db = mongoose.connection;
 db.on('error', (err) => {console.log(err)});
 db.once('open', function() {
-  app.listen(3000, function(){
-    console.log("listening on port 3000");
+  app.listen($PORT || 3000, function(){
+    console.log("app is listening");
   });
 });
 
