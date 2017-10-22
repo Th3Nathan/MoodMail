@@ -2,7 +2,12 @@ var express = require('express');
 var passport = require('passport');  
 var router = express.Router();
 var Message = require('./../models/message.js');
-const language = require('@google-cloud/language');
+var config = {
+    client_email: process.env.CLIENT_EMAIL,
+    private_key: process.env.SERVICE_PRIVATE_KEY,
+    projectId: process.env.PROJECT_ID
+};
+const language = require('@google-cloud/language')(config);
 
 
 router.get('/home',
