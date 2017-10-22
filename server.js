@@ -4,6 +4,10 @@ var mongoose = require('mongoose');
 
 mongoose.connect(require('./config/database.js').url);
 
+//This is done because google service authentication needs a file path to authenticate, no env variables.
+var encryptor = require('file-encryptor')
+encryptor.decryptFile('encrypted.dat', 'MoodMail-dac8f8aa7e69.json', process.env.ENCRYPTION_KEY, function(err) {});
+
 var db = mongoose.connection;
 db.on('error', (err) => {console.log(err)});
 db.once('open', function() {

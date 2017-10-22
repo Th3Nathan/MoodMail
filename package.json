@@ -29,6 +29,7 @@
     "ejs": "^2.5.7",
     "express": "^4.13.1",
     "express-session": "^1.11.3",
+    "file-encryptor": "^0.1.1",
     "googleapis": "^22.2.0",
     "mongodb": "^2.2.33",
     "mongoose": "^4.12.3",
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "debugger": "node inspect -r dotenv/config server.js dotenv_config_path=../keys.env"
+    "start-beta": "nodemon -r dotenv/config server.js dotenv_config_path=../keys.env"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
