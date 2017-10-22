@@ -1,0 +1,47 @@
+{
+  "name": "moodmail",
+  "version": "0.0.0",
+  "description": "Uses Express, OAuth, Gmail API, and Google Language Processing service to analyze email sentiment",
+  "keywords": [
+    "OAuth",
+    "Machine Learning",
+    "Gmail API",
+    "express",
+    "passport"
+  ],
+  "author": "Jared Hanson",
+  "license": "Unlicense",
+  "homepage": "https://github.com/passport/moodmail",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/passport/moodmail"
+  },
+  "bugs": {
+    "url": "https://github.com/passport/moodmail/issues"
+  },
+  "dependencies": {
+    "@google-cloud/language": "^1.0.0",
+    "atob": "^2.0.3",
+    "body-parser": "^1.13.2",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.3.5",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.13.1",
+    "express-session": "^1.11.3",
+    "googleapis": "^22.2.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.12.3",
+    "morgan": "^1.6.1",
+    "node-gmail-api": "^0.6.1",
+    "passport": "^0.2.2",
+    "passport-google-oauth2": "^0.1.6"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "debugger": "node inspect -r dotenv/config server.js dotenv_config_path=../keys.env"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
